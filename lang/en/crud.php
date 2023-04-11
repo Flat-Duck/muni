@@ -128,4 +128,26 @@ return [
             'active' => 'Active',
         ],
     ],
+
+    'roles' => [
+        'name' => 'Roles',
+        'index_title' => 'Roles List',
+        'create_title' => 'Create Role',
+        'edit_title' => 'Edit Role',
+        'show_title' => 'Show Role',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
+
+    'permissions' => [
+        'name' => 'Permissions',
+        'index_title' => 'Permissions List',
+        'create_title' => 'Create Permission',
+        'edit_title' => 'Edit Permission',
+        'show_title' => 'Show Permission',
+        'inputs' => [
+            'name' => 'Name',
+        ],
+    ],
 ];

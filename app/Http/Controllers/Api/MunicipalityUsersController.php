@@ -56,6 +56,8 @@ class MunicipalityUsersController extends Controller
 
         $user = $municipality->users()->create($validated);
 
+        $user->syncRoles($request->roles);
+
         return new UserResource($user);
     }
 }

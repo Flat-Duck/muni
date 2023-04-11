@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 'email' => 'admin@admin.com',
                 'password' => \Hash::make('admin'),
             ]);
+        $this->call(PermissionsSeeder::class);
 
         $this->call(ComplaintSeeder::class);
         $this->call(MunicipalitySeeder::class);

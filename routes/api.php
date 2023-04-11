@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ComplaintController;
 use App\Http\Controllers\Api\OrderTypeController;
 use App\Http\Controllers\Api\UserOrdersController;
+use App\Http\Controllers\Api\PermissionController;
 use App\Http\Controllers\Api\MunicipalityController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\UserComplaintsController;
@@ -41,6 +43,9 @@ Route::middleware('auth:sanctum')
 Route::name('api.')
     ->middleware('auth:sanctum')
     ->group(function () {
+        Route::apiResource('roles', RoleController::class);
+        Route::apiResource('permissions', PermissionController::class);
+
         Route::apiResource('complaints', ComplaintController::class);
 
         Route::apiResource('municipalities', MunicipalityController::class);

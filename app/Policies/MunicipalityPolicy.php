@@ -18,7 +18,7 @@ class MunicipalityPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('list municipalities');
     }
 
     /**
@@ -30,7 +30,7 @@ class MunicipalityPolicy
      */
     public function view(User $user, Municipality $model)
     {
-        return true;
+        return $user->hasPermissionTo('view municipalities');
     }
 
     /**
@@ -41,7 +41,7 @@ class MunicipalityPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('create municipalities');
     }
 
     /**
@@ -53,7 +53,7 @@ class MunicipalityPolicy
      */
     public function update(User $user, Municipality $model)
     {
-        return true;
+        return $user->hasPermissionTo('update municipalities');
     }
 
     /**
@@ -65,7 +65,7 @@ class MunicipalityPolicy
      */
     public function delete(User $user, Municipality $model)
     {
-        return true;
+        return $user->hasPermissionTo('delete municipalities');
     }
 
     /**
@@ -77,7 +77,7 @@ class MunicipalityPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('delete municipalities');
     }
 
     /**

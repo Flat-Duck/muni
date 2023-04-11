@@ -35,6 +35,7 @@ class UserStoreRequest extends FormRequest
             'nationality' => ['required', 'max:255', 'string'],
             'Identity' => ['required', 'max:255', 'string'],
             'active' => ['required', 'boolean'],
+            'roles' => 'array',
         ];
     }
 }

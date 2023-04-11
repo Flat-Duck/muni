@@ -18,7 +18,7 @@ class OrderTypePolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('list ordertypes');
     }
 
     /**
@@ -30,7 +30,7 @@ class OrderTypePolicy
      */
     public function view(User $user, OrderType $model)
     {
-        return true;
+        return $user->hasPermissionTo('view ordertypes');
     }
 
     /**
@@ -41,7 +41,7 @@ class OrderTypePolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('create ordertypes');
     }
 
     /**
@@ -53,7 +53,7 @@ class OrderTypePolicy
      */
     public function update(User $user, OrderType $model)
     {
-        return true;
+        return $user->hasPermissionTo('update ordertypes');
     }
 
     /**
@@ -65,7 +65,7 @@ class OrderTypePolicy
      */
     public function delete(User $user, OrderType $model)
     {
-        return true;
+        return $user->hasPermissionTo('delete ordertypes');
     }
 
     /**
@@ -77,7 +77,7 @@ class OrderTypePolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('delete ordertypes');
     }
 
     /**

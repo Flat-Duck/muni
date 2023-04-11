@@ -18,7 +18,7 @@ class NotificationPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('list notifications');
     }
 
     /**
@@ -30,7 +30,7 @@ class NotificationPolicy
      */
     public function view(User $user, Notification $model)
     {
-        return true;
+        return $user->hasPermissionTo('view notifications');
     }
 
     /**
@@ -41,7 +41,7 @@ class NotificationPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('create notifications');
     }
 
     /**
@@ -53,7 +53,7 @@ class NotificationPolicy
      */
     public function update(User $user, Notification $model)
     {
-        return true;
+        return $user->hasPermissionTo('update notifications');
     }
 
     /**
@@ -65,7 +65,7 @@ class NotificationPolicy
      */
     public function delete(User $user, Notification $model)
     {
-        return true;
+        return $user->hasPermissionTo('delete notifications');
     }
 
     /**
@@ -77,7 +77,7 @@ class NotificationPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('delete notifications');
     }
 
     /**

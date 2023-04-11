@@ -18,7 +18,7 @@ class NewsPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('list allnews');
     }
 
     /**
@@ -30,7 +30,7 @@ class NewsPolicy
      */
     public function view(User $user, News $model)
     {
-        return true;
+        return $user->hasPermissionTo('view allnews');
     }
 
     /**
@@ -41,7 +41,7 @@ class NewsPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('create allnews');
     }
 
     /**
@@ -53,7 +53,7 @@ class NewsPolicy
      */
     public function update(User $user, News $model)
     {
-        return true;
+        return $user->hasPermissionTo('update allnews');
     }
 
     /**
@@ -65,7 +65,7 @@ class NewsPolicy
      */
     public function delete(User $user, News $model)
     {
-        return true;
+        return $user->hasPermissionTo('delete allnews');
     }
 
     /**
@@ -77,7 +77,7 @@ class NewsPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('delete allnews');
     }
 
     /**

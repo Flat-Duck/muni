@@ -18,7 +18,7 @@ class ComplaintPolicy
      */
     public function viewAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('list complaints');
     }
 
     /**
@@ -30,7 +30,7 @@ class ComplaintPolicy
      */
     public function view(User $user, Complaint $model)
     {
-        return true;
+        return $user->hasPermissionTo('view complaints');
     }
 
     /**
@@ -41,7 +41,7 @@ class ComplaintPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('create complaints');
     }
 
     /**
@@ -53,7 +53,7 @@ class ComplaintPolicy
      */
     public function update(User $user, Complaint $model)
     {
-        return true;
+        return $user->hasPermissionTo('update complaints');
     }
 
     /**
@@ -65,7 +65,7 @@ class ComplaintPolicy
      */
     public function delete(User $user, Complaint $model)
     {
-        return true;
+        return $user->hasPermissionTo('delete complaints');
     }
 
     /**
@@ -77,7 +77,7 @@ class ComplaintPolicy
      */
     public function deleteAny(User $user)
     {
-        return true;
+        return $user->hasPermissionTo('delete complaints');
     }
 
     /**
