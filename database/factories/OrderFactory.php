@@ -24,7 +24,7 @@ class OrderFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(10),
-            'status' => 'undefined',
+            'status' => 'رفض',
             'active' => $this->faker->boolean,
             'order_type_id' => \App\Models\OrderType::factory(),
             'user_id' => \App\Models\User::factory(),
