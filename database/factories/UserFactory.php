@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'phone' => $this->faker->phoneNumber,
             'birth_date' => $this->faker->date,
-            'gender' => \Arr::random(['male', 'female', 'other']),
+            'gender' => \Arr::random(['ذكر', 'أنثى']),
             'nationality' => $this->faker->text(255),
             'Identity' => $this->faker->text(255),
             'active' => $this->faker->boolean,
