@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('status', []);
+            $table->enum('status', ['اننظار','قبول','رفض']);
             $table->boolean('active')->default(1);
             $table->unsignedBigInteger('order_type_id');
             $table->unsignedBigInteger('user_id');

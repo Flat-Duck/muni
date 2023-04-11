@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('municipality_id');
             $table->string('phone');
             $table->date('birth_date');
-            $table->enum('gender', ['male', 'female', 'other']);
+            $table->enum('gender', ['ذكر', 'أنثى']);
             $table->string('nationality');
             $table->string('Identity');
             $table->boolean('active');
