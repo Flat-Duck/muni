@@ -21,6 +21,12 @@ class PermissionsSeeder extends Seeder
         Permission::create(['name' => 'update complaints']);
         Permission::create(['name' => 'delete complaints']);
 
+        Permission::create(['name' => 'list complainttypes']);
+        Permission::create(['name' => 'view complainttypes']);
+        Permission::create(['name' => 'create complainttypes']);
+        Permission::create(['name' => 'update complainttypes']);
+        Permission::create(['name' => 'delete complainttypes']);
+
         Permission::create(['name' => 'list municipalities']);
         Permission::create(['name' => 'view municipalities']);
         Permission::create(['name' => 'create municipalities']);

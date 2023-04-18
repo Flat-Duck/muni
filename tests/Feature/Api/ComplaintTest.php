@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Complaint;
 
 use App\Models\Municipality;
+use App\Models\ComplaintType;
 
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
@@ -54,6 +55,8 @@ class ComplaintTest extends TestCase
 
         $response = $this->postJson(route('api.complaints.store'), $data);
 
+        unset($data['complaint_type_id']);
+
         $this->assertDatabaseHas('complaints', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);
@@ -68,17 +71,21 @@ class ComplaintTest extends TestCase
 
         $user = User::factory()->create();
         $municipality = Municipality::factory()->create();
+        $complaintType = ComplaintType::factory()->create();
 
         $data = [
             'content' => $this->faker->text,
             'user_id' => $user->id,
             'municipality_id' => $municipality->id,
+            'complaint_type_id' => $complaintType->id,
         ];
 
         $response = $this->putJson(
             route('api.complaints.update', $complaint),
             $data
         );
+
+        unset($data['complaint_type_id']);
 
         $data['id'] = $complaint->id;
 

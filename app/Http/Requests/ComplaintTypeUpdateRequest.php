@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ComplaintStoreRequest extends FormRequest
+class ComplaintTypeUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,8 @@ class ComplaintStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => ['required', 'max:255', 'string'],
-            //'user_id' => ['required', 'exists:users,id'],
-            'complaint_type_id' => ['required','exists:complaint_types,id'],
-            'municipality_id' => ['exists:municipalities,id'],
+            'name' => ['required', 'max:255', 'string'],
+            'description' => ['required', 'max:255', 'string'],
         ];
     }
 }

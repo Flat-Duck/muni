@@ -5,13 +5,22 @@ namespace App\Models;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-class Complaint extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+class Complaint extends Model implements HasMedia
 {
     use HasFactory;
     use Searchable;
+    use  InteractsWithMedia;
 
-    protected $fillable = ['content', 'user_id', 'municipality_id'];
+    protected $with = "media";
+
+    protected $fillable = [
+        'content',
+        'user_id',
+        'municipality_id',
+        'complaint_type_id',
+    ];
 
     protected $searchableFields = ['*'];
 
@@ -24,4 +33,10 @@ class Complaint extends Model
     {
         return $this->belongsTo(Municipality::class);
     }
+
+    public function complaintType()
+    {
+        return $this->belongsTo(ComplaintType::class);
+    }
+
 }

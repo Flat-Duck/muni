@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->text('content');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('municipality_id');
+            $table->unsignedBigInteger('complaint_type_id');
 
             $table->timestamps();
         });

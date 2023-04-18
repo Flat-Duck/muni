@@ -4,13 +4,14 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 use App\Models\Complaint;
+use App\Models\ComplaintType;
 
 use Tests\TestCase;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class UserComplaintsTest extends TestCase
+class ComplaintTypeComplaintsTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
@@ -30,16 +31,18 @@ class UserComplaintsTest extends TestCase
     /**
      * @test
      */
-    public function it_gets_user_complaints()
+    public function it_gets_complaint_type_complaints()
     {
-        $user = User::factory()->create();
+        $complaintType = ComplaintType::factory()->create();
         $complaints = Complaint::factory()
             ->count(2)
             ->create([
-                'user_id' => $user->id,
+                'complaint_type_id' => $complaintType->id,
             ]);
 
-        $response = $this->getJson(route('api.users.complaints.index', $user));
+        $response = $this->getJson(
+            route('api.complaint-types.complaints.index', $complaintType)
+        );
 
         $response->assertOk()->assertSee($complaints[0]->content);
     }
@@ -47,17 +50,17 @@ class UserComplaintsTest extends TestCase
     /**
      * @test
      */
-    public function it_stores_the_user_complaints()
+    public function it_stores_the_complaint_type_complaints()
     {
-        $user = User::factory()->create();
+        $complaintType = ComplaintType::factory()->create();
         $data = Complaint::factory()
             ->make([
-                'user_id' => $user->id,
+                'complaint_type_id' => $complaintType->id,
             ])
             ->toArray();
 
         $response = $this->postJson(
-            route('api.users.complaints.store', $user),
+            route('api.complaint-types.complaints.store', $complaintType),
             $data
         );
 
@@ -69,6 +72,6 @@ class UserComplaintsTest extends TestCase
 
         $complaint = Complaint::latest('id')->first();
 
-        $this->assertEquals($user->id, $complaint->user_id);
+        $this->assertEquals($complaintType->id, $complaint->complaint_type_id);
     }
 }

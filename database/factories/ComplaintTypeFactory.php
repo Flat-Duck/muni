@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Complaint;
 use Illuminate\Support\Str;
+use App\Models\ComplaintType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ComplaintFactory extends Factory
+class ComplaintTypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Complaint::class;
+    protected $model = ComplaintType::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +23,8 @@ class ComplaintFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->text,
-            'user_id' => \App\Models\User::factory(),
-            'municipality_id' => \App\Models\Municipality::factory(),
-            'complaint_type_id' => \App\Models\ComplaintType::factory(),
+            'name' => $this->faker->name(),
+            'description' => $this->faker->sentence(15),
         ];
     }
 }

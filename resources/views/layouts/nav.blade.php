@@ -43,6 +43,9 @@
                             @can('view-any', App\Models\User::class)
                             <a class="dropdown-item" href="{{ route('users.index') }}">Users</a>
                             @endcan
+                            @can('view-any', App\Models\ComplaintType::class)
+                            <a class="dropdown-item" href="{{ route('complaint-types.index') }}">Complaint Types</a>
+                            @endcan
                         </div>
 
                     </li>

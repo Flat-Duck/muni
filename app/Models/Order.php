@@ -13,6 +13,8 @@ class Order extends Model
     use Searchable;
     use SoftDeletes;
 
+  // protected $table = 'requests';
+
     protected $fillable = [
         'name',
         'status',

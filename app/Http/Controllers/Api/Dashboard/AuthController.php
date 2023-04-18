@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Models\User;
 use Illuminate\Http\Request;

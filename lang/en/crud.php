@@ -129,6 +129,19 @@ return [
         ],
     ],
 
+    'complaint_types' => [
+        'name' => 'Complaint Types',
+        'index_title' => 'ComplaintTypes List',
+        'new_title' => 'New Complaint type',
+        'create_title' => 'Create ComplaintType',
+        'edit_title' => 'Edit ComplaintType',
+        'show_title' => 'Show ComplaintType',
+        'inputs' => [
+            'name' => 'Name',
+            'description' => 'Description',
+        ],
+    ],
+
     'roles' => [
         'name' => 'Roles',
         'index_title' => 'Roles List',

@@ -26,6 +26,13 @@ return new class extends Migration {
                 ->on('municipalities')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('complaint_type_id')
+                ->references('id')
+                ->on('complaint_types')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -39,6 +46,7 @@ return new class extends Migration {
         Schema::table('complaints', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['municipality_id']);
+            $table->dropForeign(['complaint_type_id']);
         });
     }
 };

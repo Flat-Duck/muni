@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Models\Complaint;
 use Illuminate\Http\Request;
@@ -18,30 +18,17 @@ class ComplaintController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Complaint::class);
-
         $search = $request->get('search', '');
 
-        $complaints = Complaint::search($search)
+        $municipality = $request->user()->municipality;
+
+        $complaints = $municipality
+            ->complaints()
+            ->search($search)
             ->latest()
             ->paginate();
 
         return new ComplaintCollection($complaints);
-    }
-
-    /**
-     * @param \App\Http\Requests\ComplaintStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(ComplaintStoreRequest $request)
-    {
-        $this->authorize('create', Complaint::class);
-
-        $validated = $request->validated();
-
-        $complaint = Complaint::create($validated);
-
-        return new ComplaintResource($complaint);
     }
 
     /**
@@ -51,8 +38,6 @@ class ComplaintController extends Controller
      */
     public function show(Request $request, Complaint $complaint)
     {
-        $this->authorize('view', $complaint);
-
         return new ComplaintResource($complaint);
     }
 

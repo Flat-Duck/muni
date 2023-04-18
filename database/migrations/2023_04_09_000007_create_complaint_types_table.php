@@ -12,16 +12,12 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('complaint_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('status', ['إنتظار', 'قبول', 'رفض'])->default('إنتظار');
-            $table->unsignedBigInteger('order_type_id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('municipality_id');
+            $table->text('description');
 
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('complaint_types');
     }
 };

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Dashboard;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -15,7 +15,7 @@ class RoleController extends Controller {
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) 
+    public function index(Request $request)
     {
         $this->authorize('list', Role::class);
 
@@ -29,7 +29,7 @@ class RoleController extends Controller {
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         $this->authorize('create', Role::class);
 
@@ -50,7 +50,7 @@ class RoleController extends Controller {
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role) 
+    public function show(Role $role)
     {
         $this->authorize('view', Role::class);
 
@@ -62,7 +62,7 @@ class RoleController extends Controller {
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role) 
+    public function update(Request $request, Role $role)
     {
         $this->authorize('update', $role);
 
@@ -70,7 +70,7 @@ class RoleController extends Controller {
             'name'=>'required|max:32|unique:roles,name,'.$role->id,
             'permissions' =>'array',
         ]);
-        
+
         $role->update($validated);
 
         $permissions = Permission::find($request->permissions);

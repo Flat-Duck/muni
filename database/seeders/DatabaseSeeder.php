@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionsSeeder::class);
 
         $this->call(ComplaintSeeder::class);
+        $this->call(ComplaintTypeSeeder::class);
         $this->call(MunicipalitySeeder::class);
         $this->call(NewsSeeder::class);
         $this->call(NotificationSeeder::class);

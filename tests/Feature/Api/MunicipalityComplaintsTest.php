@@ -64,6 +64,8 @@ class MunicipalityComplaintsTest extends TestCase
             $data
         );
 
+        unset($data['complaint_type_id']);
+
         $this->assertDatabaseHas('complaints', $data);
 
         $response->assertStatus(201)->assertJsonFragment($data);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Models\Municipality;
 use Illuminate\Http\Request;
