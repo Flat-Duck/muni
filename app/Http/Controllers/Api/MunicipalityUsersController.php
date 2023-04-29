@@ -46,7 +46,7 @@ class MunicipalityUsersController extends Controller
             'password' => ['required'],
             'phone' => ['required', 'max:255', 'string'],
             'birth_date' => ['required', 'date'],
-            'gender' => ['required', 'in:male,female,other'],
+            'gender' => ['required', 'in:أنثى,ذكر'],
             'nationality' => ['required', 'max:255', 'string'],
             'Identity' => ['required', 'max:255', 'string'],
             'active' => ['required', 'boolean'],

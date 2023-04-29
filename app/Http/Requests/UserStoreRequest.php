@@ -31,7 +31,7 @@ class UserStoreRequest extends FormRequest
             'municipality_id' => ['required', 'exists:municipalities,id'],
             'phone' => ['required', 'max:255', 'string'],
             'birth_date' => ['required', 'date'],
-            'gender' => ['required', 'in:male,female,other'],
+            'gender' => ['required', 'in:أنثى,ذكر'],
             'nationality' => ['required', 'max:255', 'string'],
             'Identity' => ['required', 'max:255', 'string'],
             'active' => ['required', 'boolean'],

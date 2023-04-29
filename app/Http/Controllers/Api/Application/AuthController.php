@@ -43,7 +43,7 @@ class AuthController extends Controller
             'municipality_id' => 'required|numeric',
             'phone' => 'required|numeric',
             'birth_date' => 'required|date',
-            'gender' => 'required',
+            'gender' => ['required', 'in:أنثى,ذكر'],
             'nationality' => 'required|string',
             'Identity' => 'required|string',
         ]);
