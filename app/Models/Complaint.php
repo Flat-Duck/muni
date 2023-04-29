@@ -13,7 +13,11 @@ class Complaint extends Model implements HasMedia
     use Searchable;
     use  InteractsWithMedia;
 
-    protected $with = "media";
+    protected $with = [
+        "media",
+        "user",
+        "complaintType"
+    ];
 
     protected $fillable = [
         'content',

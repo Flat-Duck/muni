@@ -19,13 +19,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', User::class);
-
         $search = $request->get('search', '');
 
         $users = User::search($search)
-            ->latest()
+         //   ->latest()
             ->paginate();
+
+        $dashboardUsers = $users->reject(function($element) {
+            return $element->isDashboardUser() == true;
+        });
+      //  $dashboardUsers->paginate();
 
         return new UserCollection($users);
     }

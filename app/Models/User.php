@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function isDashboardUser()
+    {
+        return $this->roles->count() > 0;
+    }
+
     public function isSuperAdmin()
     {
         return $this->hasRole('super-admin');

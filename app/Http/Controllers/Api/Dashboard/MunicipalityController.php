@@ -18,8 +18,6 @@ class MunicipalityController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Municipality::class);
-
         $search = $request->get('search', '');
 
         $municipalities = Municipality::search($search)
@@ -81,8 +79,6 @@ class MunicipalityController extends Controller
      */
     public function destroy(Request $request, Municipality $municipality)
     {
-        $this->authorize('delete', $municipality);
-
         $municipality->delete();
 
         return response()->noContent();

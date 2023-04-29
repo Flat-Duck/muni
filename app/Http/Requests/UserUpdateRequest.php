@@ -24,18 +24,21 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
+       // dd($this->user()->id);
         return [
            // 'name' => ['required', 'max:255', 'string'],
             'email' => [
                 'required',
-                Rule::unique('users', 'email')->ignore($this->user),
+                Rule::unique('users', 'email')->ignore($this->user()->id),
                 'email',
             ],
             'password' => ['nullable'],
             'municipality_id' => ['required', 'exists:municipalities,id'],
-            'phone' => ['required', 'max:255', 'string'],
+            'phone' => ['required',
+                Rule::unique('users', 'phone')->ignore($this->user()->id),
+                'max:255', 'string'],
             'birth_date' => ['required', 'date'],
-            'gender' => ['required', 'in:male,female,other'],
+            'gender' => ['required', 'in:أنثى,ذكر'],
             'nationality' => ['required', 'max:255', 'string'],
             'Identity' => ['required', 'max:255', 'string'],
             'active' => ['required', 'boolean'],

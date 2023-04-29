@@ -18,30 +18,17 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Order::class);
-
         $search = $request->get('search', '');
 
-        $orders = Order::search($search)
-            ->latest()
-            ->paginate();
+        $municipality = $request->user()->municipality;
+
+        $orders = $municipality
+                ->orders()
+                ->search($search)
+                ->latest()
+                ->paginate();
 
         return new OrderCollection($orders);
-    }
-
-    /**
-     * @param \App\Http\Requests\OrderStoreRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(OrderStoreRequest $request)
-    {
-        $this->authorize('create', Order::class);
-
-        $validated = $request->validated();
-
-        $order = Order::create($validated);
-
-        return new OrderResource($order);
     }
 
     /**

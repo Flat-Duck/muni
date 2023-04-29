@@ -24,6 +24,7 @@ class ComplaintController extends Controller
 
         $complaints = $municipality
             ->complaints()
+        //    ->with(['user','complaint_type'])
             ->search($search)
             ->latest()
             ->paginate();
