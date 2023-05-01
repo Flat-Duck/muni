@@ -28,20 +28,18 @@ class UserUpdateRequest extends FormRequest
         return [
            // 'name' => ['required', 'max:255', 'string'],
             'email' => [
-                'required',
-                Rule::unique('users', 'email')->ignore($this->user()->id),
-                'email',
+                Rule::unique('users', 'email')->ignore($this->user()->id), 'email',
             ],
             'password' => ['nullable'],
-            'municipality_id' => ['required', 'exists:municipalities,id'],
-            'phone' => ['required',
+            'municipality_id' => [ 'exists:municipalities,id'],
+            'phone' => [
                 Rule::unique('users', 'phone')->ignore($this->user()->id),
                 'max:255', 'string'],
-            'birth_date' => ['required', 'date'],
-            'gender' => ['required', 'in:أنثى,ذكر'],
-            'nationality' => ['required', 'max:255', 'string'],
-            'Identity' => ['required', 'max:255', 'string'],
-            'active' => ['required', 'boolean'],
+            'birth_date' => [ 'date'],
+            'gender' => [ 'in:أنثى,ذكر'],
+            'nationality' => [ 'max:255', 'string'],
+            'Identity' => [ 'max:255', 'string'],
+            'active' => [ 'boolean'],
             'roles' => 'array',
         ];
     }

@@ -39,7 +39,7 @@ class OrderTypeOrdersController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],
-            'status' => ['required', 'in:'],
+            'status' => ['required', 'in:إنتظار,قبول,رفض'],
             'active' => ['required', 'boolean'],
             'user_id' => ['required', 'exists:users,id'],
             'municipality_id' => ['required', 'exists:municipalities,id'],

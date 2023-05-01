@@ -39,7 +39,7 @@ class MunicipalityOrdersController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],
-            'status' => ['required', 'in:'],
+            'status' => ['required', 'in:إنتظار,قبول,رفض'],
             'active' => ['required', 'boolean'],
             'order_type_id' => ['required', 'exists:order_types,id'],
             'user_id' => ['required', 'exists:users,id'],
@@ -50,3 +50,4 @@ class MunicipalityOrdersController extends Controller
         return new OrderResource($order);
     }
 }
+
