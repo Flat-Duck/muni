@@ -17,7 +17,6 @@ class UserNotificationsController extends Controller
      */
     public function index(Request $request, User $user)
     {
-        $this->authorize('view', $user);
 
         $search = $request->get('search', '');
 
@@ -37,7 +36,6 @@ class UserNotificationsController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $this->authorize('create', Notification::class);
 
         $validated = $request->validate([
             'title' => ['required', 'max:255', 'string'],

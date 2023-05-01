@@ -13,9 +13,8 @@ class RoleController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) 
+    public function index(Request $request)
     {
-        $this->authorize('list', Role::class);
 
         $search = $request->get('search', '');
         $roles = Role::where('name', 'like', "%{$search}%")->paginate(10);
@@ -30,9 +29,8 @@ class RoleController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() 
+    public function create()
     {
-        $this->authorize('create', Role::class);
 
         $permissions = Permission::all();
 
@@ -45,10 +43,9 @@ class RoleController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
 
-        $this->authorize('create', Role::class);
 
         $data = $this->validate($request, [
             'name' => 'required|unique:roles|max:32',
@@ -71,9 +68,8 @@ class RoleController extends Controller {
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role) 
+    public function show(Role $role)
     {
-        $this->authorize('view', Role::class);
 
         return view('app.roles.show')->with('role', $role);
     }
@@ -84,9 +80,8 @@ class RoleController extends Controller {
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role) 
+    public function edit(Role $role)
     {
-        $this->authorize('update', $role);
 
         $permissions = Permission::all();
 
@@ -102,15 +97,14 @@ class RoleController extends Controller {
      * @param  \Spatie\Permission\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role) 
+    public function update(Request $request, Role $role)
     {
-        $this->authorize('update', $role);
 
         $data = $this->validate($request, [
             'name' => 'required|max:32|unique:roles,name,'.$role->id,
             'permissions' => 'array',
         ]);
-        
+
         $role->update($data);
 
         $permissions = Permission::find($request->permissions);
@@ -129,7 +123,6 @@ class RoleController extends Controller {
      */
     public function destroy(Role $role)
     {
-        $this->authorize('delete', $role);
 
         $role->delete();
 

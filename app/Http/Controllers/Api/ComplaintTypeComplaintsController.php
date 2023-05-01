@@ -17,7 +17,6 @@ class ComplaintTypeComplaintsController extends Controller
      */
     public function index(Request $request, ComplaintType $complaintType)
     {
-        $this->authorize('view', $complaintType);
 
         $search = $request->get('search', '');
 
@@ -37,7 +36,6 @@ class ComplaintTypeComplaintsController extends Controller
      */
     public function store(Request $request, ComplaintType $complaintType)
     {
-        $this->authorize('create', Complaint::class);
 
         $validated = $request->validate([
             'content' => ['required', 'max:255', 'string'],

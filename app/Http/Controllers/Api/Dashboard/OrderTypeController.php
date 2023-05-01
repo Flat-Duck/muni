@@ -18,7 +18,6 @@ class OrderTypeController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', OrderType::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +34,6 @@ class OrderTypeController extends Controller
      */
     public function store(OrderTypeStoreRequest $request)
     {
-        $this->authorize('create', OrderType::class);
 
         $validated = $request->validated();
 
@@ -51,7 +49,6 @@ class OrderTypeController extends Controller
      */
     public function show(Request $request, OrderType $orderType)
     {
-        $this->authorize('view', $orderType);
 
         return new OrderTypeResource($orderType);
     }
@@ -65,7 +62,6 @@ class OrderTypeController extends Controller
         OrderTypeUpdateRequest $request,
         OrderType $orderType
     ) {
-        $this->authorize('update', $orderType);
 
         $validated = $request->validated();
 
@@ -81,7 +77,6 @@ class OrderTypeController extends Controller
      */
     public function destroy(Request $request, OrderType $orderType)
     {
-        $this->authorize('delete', $orderType);
 
         $orderType->delete();
 

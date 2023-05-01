@@ -18,7 +18,6 @@ class NotificationController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', Notification::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +34,6 @@ class NotificationController extends Controller
      */
     public function store(NotificationStoreRequest $request)
     {
-        $this->authorize('create', Notification::class);
 
         $validated = $request->validated();
 
@@ -51,7 +49,6 @@ class NotificationController extends Controller
      */
     public function show(Request $request, Notification $notification)
     {
-        $this->authorize('view', $notification);
 
         return new NotificationResource($notification);
     }
@@ -65,7 +62,6 @@ class NotificationController extends Controller
         NotificationUpdateRequest $request,
         Notification $notification
     ) {
-        $this->authorize('update', $notification);
 
         $validated = $request->validated();
 
@@ -81,7 +77,6 @@ class NotificationController extends Controller
      */
     public function destroy(Request $request, Notification $notification)
     {
-        $this->authorize('delete', $notification);
 
         $notification->delete();
 

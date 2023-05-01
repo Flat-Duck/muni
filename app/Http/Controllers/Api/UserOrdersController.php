@@ -17,7 +17,6 @@ class UserOrdersController extends Controller
      */
     public function index(Request $request, User $user)
     {
-        $this->authorize('view', $user);
 
         $search = $request->get('search', '');
 
@@ -37,7 +36,6 @@ class UserOrdersController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        $this->authorize('create', Order::class);
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],

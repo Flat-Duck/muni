@@ -38,7 +38,6 @@ class OrderController extends Controller
      */
     public function show(Request $request, Order $order)
     {
-        $this->authorize('view', $order);
 
         return new OrderResource($order);
     }
@@ -50,7 +49,6 @@ class OrderController extends Controller
      */
     public function update(OrderUpdateRequest $request, Order $order)
     {
-        $this->authorize('update', $order);
 
         $validated = $request->validated();
 
@@ -66,7 +64,6 @@ class OrderController extends Controller
      */
     public function destroy(Request $request, Order $order)
     {
-        $this->authorize('delete', $order);
 
         $order->delete();
 

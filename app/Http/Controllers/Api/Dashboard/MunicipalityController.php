@@ -33,7 +33,6 @@ class MunicipalityController extends Controller
      */
     public function store(MunicipalityStoreRequest $request)
     {
-        $this->authorize('create', Municipality::class);
 
         $validated = $request->validated();
 
@@ -49,7 +48,6 @@ class MunicipalityController extends Controller
      */
     public function show(Request $request, Municipality $municipality)
     {
-        $this->authorize('view', $municipality);
 
         return new MunicipalityResource($municipality);
     }
@@ -63,7 +61,6 @@ class MunicipalityController extends Controller
         MunicipalityUpdateRequest $request,
         Municipality $municipality
     ) {
-        $this->authorize('update', $municipality);
 
         $validated = $request->validated();
 

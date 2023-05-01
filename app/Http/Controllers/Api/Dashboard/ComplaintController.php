@@ -51,7 +51,6 @@ class ComplaintController extends Controller
         ComplaintUpdateRequest $request,
         Complaint $complaint
     ) {
-        $this->authorize('update', $complaint);
 
         $validated = $request->validated();
 
@@ -67,7 +66,6 @@ class ComplaintController extends Controller
      */
     public function destroy(Request $request, Complaint $complaint)
     {
-        $this->authorize('delete', $complaint);
 
         $complaint->delete();
 

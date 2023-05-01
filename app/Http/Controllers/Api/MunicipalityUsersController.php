@@ -18,7 +18,6 @@ class MunicipalityUsersController extends Controller
      */
     public function index(Request $request, Municipality $municipality)
     {
-        $this->authorize('view', $municipality);
 
         $search = $request->get('search', '');
 
@@ -38,7 +37,6 @@ class MunicipalityUsersController extends Controller
      */
     public function store(Request $request, Municipality $municipality)
     {
-        $this->authorize('create', User::class);
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],

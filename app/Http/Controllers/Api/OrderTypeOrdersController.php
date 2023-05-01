@@ -17,7 +17,6 @@ class OrderTypeOrdersController extends Controller
      */
     public function index(Request $request, OrderType $orderType)
     {
-        $this->authorize('view', $orderType);
 
         $search = $request->get('search', '');
 
@@ -37,7 +36,6 @@ class OrderTypeOrdersController extends Controller
      */
     public function store(Request $request, OrderType $orderType)
     {
-        $this->authorize('create', Order::class);
 
         $validated = $request->validate([
             'name' => ['required', 'max:255', 'string'],

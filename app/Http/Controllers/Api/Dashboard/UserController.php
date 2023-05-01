@@ -39,7 +39,6 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $this->authorize('create', User::class);
 
         $validated = $request->validated();
 
@@ -59,7 +58,6 @@ class UserController extends Controller
      */
     public function show(Request $request, User $user)
     {
-        $this->authorize('view', $user);
 
         return new UserResource($user);
     }
@@ -71,7 +69,6 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
-        $this->authorize('update', $user);
 
         $validated = $request->validated();
 
@@ -95,7 +92,6 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        $this->authorize('delete', $user);
 
         $user->delete();
 

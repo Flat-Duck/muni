@@ -17,7 +17,6 @@ class MunicipalityAllNewsController extends Controller
      */
     public function index(Request $request, Municipality $municipality)
     {
-        $this->authorize('view', $municipality);
 
         $search = $request->get('search', '');
 
@@ -37,7 +36,6 @@ class MunicipalityAllNewsController extends Controller
      */
     public function store(Request $request, Municipality $municipality)
     {
-        $this->authorize('create', News::class);
 
         $validated = $request->validate([
             'title' => ['required', 'max:255', 'string'],

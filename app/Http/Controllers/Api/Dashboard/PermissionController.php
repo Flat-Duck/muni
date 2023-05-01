@@ -16,7 +16,6 @@ class PermissionController extends Controller
     */
     public function index(Request $request)
     {
-        $this->authorize('list', Permission::class);
 
         $search = $request->get('search', '');
         $permissions = Permission::where('name', 'like', "%{$search}%")->paginate();
@@ -30,7 +29,6 @@ class PermissionController extends Controller
     */
     public function store(Request $request)
     {
-        $this->authorize('create', Permission::class);
 
         $validated = $this->validate($request, [
             'name' => 'required|max:64',
@@ -51,7 +49,6 @@ class PermissionController extends Controller
     */
     public function show(Permission $permission)
     {
-        $this->authorize('view', Permission::class);
 
         return new PermissionResource($permission);
     }
@@ -63,7 +60,6 @@ class PermissionController extends Controller
     */
     public function update(Request $request, Permission $permission)
     {
-        $this->authorize('update', $permission);
 
         $validated = $this->validate($request, [
             'name' => 'required|max:40',
@@ -84,7 +80,6 @@ class PermissionController extends Controller
     */
     public function destroy(Permission $permission)
     {
-        $this->authorize('delete', $permission);
 
         $permission->delete();
 

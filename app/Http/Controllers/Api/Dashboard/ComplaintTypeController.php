@@ -18,7 +18,6 @@ class ComplaintTypeController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', ComplaintType::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +34,6 @@ class ComplaintTypeController extends Controller
      */
     public function store(ComplaintTypeStoreRequest $request)
     {
-        $this->authorize('create', ComplaintType::class);
 
         $validated = $request->validated();
 
@@ -51,7 +49,6 @@ class ComplaintTypeController extends Controller
      */
     public function show(Request $request, ComplaintType $complaintType)
     {
-        $this->authorize('view', $complaintType);
 
         return new ComplaintTypeResource($complaintType);
     }
@@ -65,7 +62,6 @@ class ComplaintTypeController extends Controller
         ComplaintTypeUpdateRequest $request,
         ComplaintType $complaintType
     ) {
-        $this->authorize('update', $complaintType);
 
         $validated = $request->validated();
 
@@ -81,7 +77,6 @@ class ComplaintTypeController extends Controller
      */
     public function destroy(Request $request, ComplaintType $complaintType)
     {
-        $this->authorize('delete', $complaintType);
 
         $complaintType->delete();
 

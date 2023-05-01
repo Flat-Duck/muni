@@ -18,7 +18,6 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $this->authorize('view-any', News::class);
 
         $search = $request->get('search', '');
 
@@ -35,7 +34,6 @@ class NewsController extends Controller
      */
     public function store(NewsStoreRequest $request)
     {
-        $this->authorize('create', News::class);
 
         $validated = $request->validated();
 
@@ -51,7 +49,6 @@ class NewsController extends Controller
      */
     public function show(Request $request, News $news)
     {
-        $this->authorize('view', $news);
 
         return new NewsResource($news);
     }
@@ -63,7 +60,6 @@ class NewsController extends Controller
      */
     public function update(NewsUpdateRequest $request, News $news)
     {
-        $this->authorize('update', $news);
 
         $validated = $request->validated();
 
@@ -79,7 +75,6 @@ class NewsController extends Controller
      */
     public function destroy(Request $request, News $news)
     {
-        $this->authorize('delete', $news);
 
         $news->delete();
 
