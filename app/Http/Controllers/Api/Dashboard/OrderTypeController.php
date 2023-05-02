@@ -80,6 +80,9 @@ class OrderTypeController extends Controller
 
         $orderType->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

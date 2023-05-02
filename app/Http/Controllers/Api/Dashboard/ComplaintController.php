@@ -69,6 +69,9 @@ class ComplaintController extends Controller
 
         $complaint->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

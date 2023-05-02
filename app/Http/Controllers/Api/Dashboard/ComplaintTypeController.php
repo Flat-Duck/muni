@@ -80,6 +80,9 @@ class ComplaintTypeController extends Controller
 
         $complaintType->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

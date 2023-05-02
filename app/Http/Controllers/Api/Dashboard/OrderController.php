@@ -67,6 +67,9 @@ class OrderController extends Controller
 
         $order->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

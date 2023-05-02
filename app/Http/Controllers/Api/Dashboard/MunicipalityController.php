@@ -78,6 +78,9 @@ class MunicipalityController extends Controller
     {
         $municipality->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

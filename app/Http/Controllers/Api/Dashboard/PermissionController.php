@@ -83,6 +83,9 @@ class PermissionController extends Controller
 
         $permission->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

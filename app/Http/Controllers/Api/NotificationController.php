@@ -80,6 +80,9 @@ class NotificationController extends Controller
 
         $notification->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }

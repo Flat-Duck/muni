@@ -84,6 +84,9 @@ class RoleController extends Controller {
 
         $role->delete();
 
-        return response()->noContent();
+        return response()->json([
+            'success' => true,
+            'message' => 'Deleted successfuly',
+        ]);
     }
 }
