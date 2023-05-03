@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\Builter;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\Searchable;
 use Spatie\Permission\Traits\HasRoles;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasFactory;
     use Searchable;
     use HasApiTokens;
+    use Builter;
 
     protected $fillable = [
         'name',

@@ -18,6 +18,8 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+        $credentials['active'] = 1;
+        //return $credentials;
 
         if (!auth()->attempt($credentials)) {
             throw ValidationException::withMessages([

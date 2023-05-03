@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->enum('gender', ['ذكر', 'أنثى']);
             $table->string('nationality');
             $table->string('Identity');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
         });

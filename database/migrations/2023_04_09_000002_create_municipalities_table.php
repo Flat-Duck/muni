@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
         });

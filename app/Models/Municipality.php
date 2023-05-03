@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\Builter;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,6 +11,7 @@ class Municipality extends Model
 {
     use HasFactory;
     use Searchable;
+    use Builter;
 
     protected $fillable = ['name', 'description'];
 

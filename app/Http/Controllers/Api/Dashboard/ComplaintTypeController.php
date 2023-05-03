@@ -22,6 +22,7 @@ class ComplaintTypeController extends Controller
         $search = $request->get('search', '');
 
         $complaintTypes = ComplaintType::search($search)
+        ->OnlyActive()
             ->latest()
             ->paginate();
 

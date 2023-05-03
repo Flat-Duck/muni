@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('url')->nullable();
             $table->text('description');
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
         });
