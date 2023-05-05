@@ -28,6 +28,7 @@ class OrderUpdateRequest extends FormRequest
             'status' => ['required', 'in:إنتظار,قبول,رفض'],
             'order_type_id' => [ 'exists:order_types,id'],
             'user_id' => [ 'exists:users,id'],
+            'description' => ['string'],
             'municipality_id' => [ 'exists:municipalities,id'],
         ];
     }

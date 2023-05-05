@@ -9,6 +9,7 @@ use App\Http\Resources\OrderResource;
 use App\Http\Resources\OrderCollection;
 use App\Http\Requests\OrderStoreRequest;
 use App\Http\Requests\OrderUpdateRequest;
+use App\Models\Notification;
 
 class OrderController extends Controller
 {
@@ -53,6 +54,14 @@ class OrderController extends Controller
         $validated = $request->validated();
 
         $order->update($validated);
+
+        if($order->status == "رفض"){
+            $notification = new Notification();
+            $notification->title = "رفض طلب";
+            $notification->description = $request->description;
+            $notification->user_id = $order->user_id;
+            $notification->save();
+        }
 
         return new OrderResource($order);
     }
