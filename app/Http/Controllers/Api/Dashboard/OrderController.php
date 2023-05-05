@@ -62,6 +62,13 @@ class OrderController extends Controller
             $notification->user_id = $order->user_id;
             $notification->save();
         }
+        if($order->status == "قبول"){
+            $notification = new Notification();
+            $notification->title = "قبول طلب";
+            $notification->description = "تم قبول طلبكم";
+            $notification->user_id = $order->user_id;
+            $notification->save();
+        }
 
         return new OrderResource($order);
     }
