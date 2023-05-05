@@ -26,7 +26,7 @@ class OrderUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'max:255', 'string'],
             'status' => ['required', 'in:إنتظار,قبول,رفض'],
-            'active' => ['required', 'boolean'],
+
             'order_type_id' => ['required', 'exists:order_types,id'],
             'user_id' => ['required', 'exists:users,id'],
             'municipality_id' => ['required', 'exists:municipalities,id'],
