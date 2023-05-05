@@ -46,6 +46,7 @@ class OrderController extends Controller
         ]);
 
         $order = $user->orders()->create($validated);
+        $order->ref_number = '120' .$order->id;
 
         return new OrderResource($order);
     }

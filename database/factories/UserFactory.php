@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'gender' => \Arr::random(['ذكر', 'أنثى']),
             'nationality' => $this->faker->text(255),
             'Identity' => $this->faker->text(255),
-            'active' => $this->faker->boolean,
+            'active' => 1,
             'municipality_id' => \App\Models\Municipality::factory(),
         ];
     }
