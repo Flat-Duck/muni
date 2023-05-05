@@ -24,12 +24,11 @@ class OrderUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', 'string'],
+            'name' => [ 'max:255', 'string'],
             'status' => ['required', 'in:إنتظار,قبول,رفض'],
-
-            'order_type_id' => ['required', 'exists:order_types,id'],
-            'user_id' => ['required', 'exists:users,id'],
-            'municipality_id' => ['required', 'exists:municipalities,id'],
+            'order_type_id' => [ 'exists:order_types,id'],
+            'user_id' => [ 'exists:users,id'],
+            'municipality_id' => [ 'exists:municipalities,id'],
         ];
     }
 }
