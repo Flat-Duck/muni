@@ -21,7 +21,8 @@ class AuthController extends Controller
         $credentials['active'] = 1;
         //return $credentials;
 
-        if (!auth()->attempt($credentials)) {
+
+        if (!auth()->guard('web')->attempt($credentials)) {
             throw ValidationException::withMessages([
                 'email' => [trans('auth.failed')],
             ]);

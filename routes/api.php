@@ -41,7 +41,7 @@ Route::name('api.application.')->prefix('application')->group(function () {
     Route::post('register', [ApplicationAuthController::class, 'register'])->name('user.register');
     Route::post('login', [ApplicationAuthController::class, 'login'])->name('user.login');
 
-    Route::middleware('auth:sanctum') ->group(function () {
+    Route::middleware('auth:api') ->group(function () {
         Route::get('news', [ApplicationNewsController::class, 'index'])->name('news.index');
 
         Route::get('notifications', [ApplicationNotificationController::class, 'index'])->name('notifications.index');
@@ -64,7 +64,7 @@ Route::name('api.application.')->prefix('application')->group(function () {
 
 Route::name('api.dashboard.')->prefix('dashboard')->group(function () {
     Route::post('login', [AuthController::class, 'login'])->name('user.login');
-    Route::middleware('auth:sanctum') ->group(function () {
+    Route::middleware('auth:api') ->group(function () {
         Route::get('/user', function (Request $request) {return $request->user();})->name('api.user');
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('permissions', PermissionController::class);
