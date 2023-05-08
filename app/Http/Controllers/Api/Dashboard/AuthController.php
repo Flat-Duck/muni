@@ -26,13 +26,18 @@ class AuthController extends Controller
                 'email' => [trans('auth.failed')],
             ]);
         }
-
+        $token = null;
         $user = User::whereEmail($request->email)->firstOrFail();
-
-        $token = $user->createToken('auth-token');
-
-        return response()->json([
-            'token' => $token->plainTextToken,
-        ]);
+        if(!$user->isDashboardUser())
+        {
+            return [
+                "message"=> "You are not Authorized to login to Dashboard",
+            ];
+        }else{
+            $token = $user->createToken('auth-token');
+            return response()->json([
+                'token' => $token->plainTextToken,
+            ]);
+        }
     }
 }
