@@ -70,7 +70,7 @@ Route::name('api.dashboard.')->prefix('dashboard')->group(function () {
         Route::apiResource('permissions', PermissionController::class);
         Route::apiResource('complaints', ComplaintController::class);
         Route::apiResource('municipalities', MunicipalityController::class);
-        Route::apiResource('all-news', NewsController::class);
+        Route::apiResource('news', NewsController::class);
         //Route::apiResource('notifications', NotificationController::class);
         Route::apiResource('orders', OrderController::class);
         Route::apiResource('order-types', OrderTypeController::class);
@@ -87,8 +87,8 @@ Route::name('api.dashboard.')->prefix('dashboard')->group(function () {
 
 
 //         // Municipality All News
-//         Route::get('/municipalities/{municipality}/all-news', [MunicipalityAllNewsController::class,'index',])->name('municipalities.all-news.index');
-//         Route::post('/municipalities/{municipality}/all-news', [MunicipalityAllNewsController::class,'store',])->name('municipalities.all-news.store');
+//         Route::get('/municipalities/{municipality}/news', [MunicipalityAllNewsController::class,'index',])->name('municipalities.news.index');
+//         Route::post('/municipalities/{municipality}/news', [MunicipalityAllNewsController::class,'store',])->name('municipalities.news.store');
 
 //         // Municipality Users
 //         Route::get('/municipalities/{municipality}/users', [MunicipalityUsersController::class,'index',])->name('municipalities.users.index');
