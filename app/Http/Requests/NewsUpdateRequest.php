@@ -24,9 +24,9 @@ class NewsUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:255', 'string'],
-            'content' => ['required', 'max:255', 'string'],
-            'municipality_id' => ['required', 'exists:municipalities,id'],
+            'title' => ['max:255', 'string'],
+            'content' => ['max:255', 'string'],
+            'municipality_id' => ['exists:municipalities,id'],
         ];
     }
 }

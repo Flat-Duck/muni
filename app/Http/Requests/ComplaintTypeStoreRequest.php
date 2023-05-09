@@ -24,8 +24,8 @@ class ComplaintTypeStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:255', 'string'],
-            'description' => ['required', 'max:255', 'string'],
+            'name' => ['max:255', 'string'],
+            'description' => ['max:255', 'string'],
         ];
     }
 }

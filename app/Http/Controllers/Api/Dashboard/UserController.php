@@ -22,13 +22,15 @@ class UserController extends Controller
         $search = $request->get('search', '');
 
         $users = User::search($search)
-         //   ->latest()
+            ->OnlyAdmin()
             ->paginate();
 
-        $dashboardUsers = $users->reject(function($element) {
-            return $element->isDashboardUser() == true;
-        });
-      //  $dashboardUsers->paginate();
+            //return $users;
+        // $users->pop(function($element) {
+
+        //     return $element->isDashboardUser() == true;
+        // });
+        // $dashboardUsers->paginate();
 
         return new UserCollection($users);
     }

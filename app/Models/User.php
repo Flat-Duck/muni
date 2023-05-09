@@ -72,4 +72,17 @@ class User extends Authenticatable
     {
         return $this->hasRole('super-admin');
     }
+
+    /**
+     * Adds a scope to search the table based on the
+     * $searchableFields array inside the model
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeOnlyAdmin($query)
+    {
+        $query->whereHas('roles');
+        return $query;
+    }
 }
