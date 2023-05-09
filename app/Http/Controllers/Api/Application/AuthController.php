@@ -21,7 +21,7 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (!Auth::guard()->attempt($credentials)) {
+        if (!Auth::guard('web')->attempt($credentials)) {
             throw ValidationException::withMessages([
                 'phone' => [trans('auth.failed')],
             ]);
