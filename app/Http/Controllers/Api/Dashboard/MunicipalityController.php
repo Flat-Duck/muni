@@ -21,7 +21,7 @@ class MunicipalityController extends Controller
         $search = $request->get('search', '');
 
         $municipalities = Municipality::search($search)
-        ->OnlyActive()
+      //  ->OnlyActive()
             ->latest()
             ->paginate();
 

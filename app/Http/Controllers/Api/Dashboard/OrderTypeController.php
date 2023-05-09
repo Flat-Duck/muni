@@ -22,7 +22,7 @@ class OrderTypeController extends Controller
         $search = $request->get('search', '');
 
         $orderTypes = OrderType::search($search)
-            ->onlyActive()
+       //     ->onlyActive()
             ->latest()
             ->paginate();
 
