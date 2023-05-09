@@ -21,14 +21,19 @@ class OrderController extends Controller
     {
         $search = $request->get('search', '');
 
-        $municipality = $request->user()->municipality;
+        if( $request->user()->isSuperAdmin()){
+            $orders = Order::search($search)
+            ->latest()
+            ->paginate();
+        }else{
+            $municipality = $request->user()->municipality;
 
-        $orders = $municipality
+            $orders = $municipality
                 ->orders()
                 ->search($search)
                 ->latest()
                 ->paginate();
-
+        }
         return new OrderCollection($orders);
     }
 

@@ -20,14 +20,21 @@ class ComplaintController extends Controller
     {
         $search = $request->get('search', '');
 
-        $municipality = $request->user()->municipality;
+        if( $request->user()->isSuperAdmin()){
+            $complaints = Complaint::search($search)
+            ->latest()
+            ->paginate();
+        }else{
 
-        $complaints = $municipality
+            $municipality = $request->user()->municipality;
+
+            $complaints = $municipality
             ->complaints()
-        //    ->with(['user','complaint_type'])
+            //    ->with(['user','complaint_type'])
             ->search($search)
             ->latest()
             ->paginate();
+        }
 
         return new ComplaintCollection($complaints);
     }
