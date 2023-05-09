@@ -13,7 +13,11 @@ class Municipality extends Model
     use Searchable;
     use Builter;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description','active'];
+
+    protected $casts = [
+        'active' => 'boolean'
+    ];
 
     protected $searchableFields = ['*'];
 
