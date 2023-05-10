@@ -26,6 +26,7 @@ class OrderTypeUpdateRequest extends FormRequest
         return [
             'name' => ['max:255', 'string'],
             'description' => ['max:255', 'string'],
+            'url' => ['required', 'max:255', 'string'],
             'active' => ['boolean'],
         ];
     }

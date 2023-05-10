@@ -26,6 +26,7 @@ class OrderTypeStoreRequest extends FormRequest
         return [
             'name' => ['required', 'max:255', 'string'],
             'description' => ['required', 'max:255', 'string'],
+            'url' => ['required', 'max:255', 'string'],
         ];
     }
 }
