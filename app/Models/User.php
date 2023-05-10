@@ -20,6 +20,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use Builter;
 
+    protected $with = ['roles'];
     protected $fillable = [
         'name',
         'email',
