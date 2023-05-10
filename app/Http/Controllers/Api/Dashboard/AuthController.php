@@ -38,6 +38,8 @@ class AuthController extends Controller
             $token = $user->createToken('auth-token');
             return response()->json([
                 'token' => $token->plainTextToken,
+                'user_perms' =>  $user->hasAnyRole(['super-admin']),
+                'muni_perms' => $user->hasAnyRole(['super-admin'])
             ]);
         }
     }
