@@ -13,7 +13,7 @@ class OrderType extends Model
     use Searchable;
     use Builter;
 
-    protected $fillable = ['name', 'description','active'];
+    protected $fillable = ['name', 'description','url','active'];
 
     protected $searchableFields = ['*'];
 
