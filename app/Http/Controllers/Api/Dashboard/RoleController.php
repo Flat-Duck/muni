@@ -51,6 +51,7 @@ class RoleController extends Controller {
     public function show(Role $role)
     {
 
+        $role->load(['permissions']);
         return new RoleResource($role);
     }
 
