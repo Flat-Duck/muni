@@ -56,7 +56,7 @@ class AuthController extends Controller
             'Identity' => 'required|string',
         ]);
 
-        $data['Identity'] = Str::replaceArray("'", [''], $data['Identity'] );
+        $data['Identity'] = str_replace("'", '',$data['Identity'] );
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
 
