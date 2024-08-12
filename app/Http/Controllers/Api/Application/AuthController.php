@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-
+use Str;
 class AuthController extends Controller
 {
     /**
@@ -23,7 +23,7 @@ class AuthController extends Controller
             'identity' => 'required',
             'password' => 'required',
         ]);
-        
+
         // $credentials = $request->validate([
         //     'phone' => 'required',
         //     'password' => 'required',
@@ -55,6 +55,8 @@ class AuthController extends Controller
             'nationality' => 'required|string',
             'Identity' => 'required|string',
         ]);
+
+        $data['Identity'] = Str::replaceArray("'", [''], $data['Identity'] );
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
 
