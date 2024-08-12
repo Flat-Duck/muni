@@ -17,10 +17,17 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        $request->merge(['identity' => $request->phone]);
+
         $credentials = $request->validate([
-            'phone' => 'required',
+            'identity' => 'required',
             'password' => 'required',
         ]);
+        
+        // $credentials = $request->validate([
+        //     'phone' => 'required',
+        //     'password' => 'required',
+        // ]);
 
         if (!Auth::guard('web')->attempt($credentials)) {
             throw ValidationException::withMessages([
